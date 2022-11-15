@@ -1,0 +1,19 @@
+---
+export interface Props {
+  timestamp: number
+}
+
+const { timestamp } = Astro.props;
+---
+
+    <a target="_blank" class="hover:no-underline">
+      <div class="h-24 flex flex-col justify-between border border-neutral-700 transition-transform p-4 rounded-xl">
+        <div class="flex flex-col gap-y-2">
+          <span class="text-md font-medium">{timestamp}</span>
+          <p class="text-lg text-neutral-200">
+            <slot />
+          </p>
+        </div>
+      </div>
+    </a>
+
