@@ -1,0 +1,31 @@
+---
+export interface Props {
+  name: string;
+  owner: string;
+  description: string;
+  stars: number;
+  language: string;
+}
+
+const { name, owner, description, stars, language } = Astro.props;
+---
+
+<a
+  href={`https://github.com/${owner}/${name}`}
+  target="_blank"
+  class="hover:no-underline"
+>
+  <div
+    class="h-36 flex flex-col justify-between gap-y-2 border border-neutral-700 bg-t-black hover:scale-105 ease-out transition-transform p-4 rounded-xl"
+  >
+    <div class="flex flex-col gap-y-2">
+      <span class="text-xl font-medium">{name}</span>
+      <p class="text-sm text-neutral-200">{description}</p>
+    </div>
+    <div class="flex items-center gap-x-1 text-sm text-neutral-200">
+
+      <div class="text-sm">Built with</div>
+      <div class="text-sm font-bold">{language}</div>
+    </div>
+  </div>
+</a>

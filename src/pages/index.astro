@@ -1,0 +1,81 @@
+---
+import BaseHead from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Project from "../components/Project.astro";
+
+type Repository = {
+  fork: boolean;
+  stargazers_count: number;
+};
+
+type PinnedRepo = {
+  owner: string;
+  repo: string;
+  description: string;
+  language: string;
+  languageColor: string;
+  stars: number;
+  forks: string;
+};
+
+const getAge = () => {
+  const age = (Date.now() - new Date("2006-05-10").getTime()) / 1000 / 60 / 60 / 24 / 365;
+  return Math.floor(age * 10) / 10;
+};
+const pinnedRepos = await fetch(
+  Astro.url + "/projects.json"
+).then(async (response) => {
+  return (await response.json()) as PinnedRepo[];
+});
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} home`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main class="text-lg text-neutral-200">
+      <h1 class="text-4xl pb-2">Hi, I'm Rithul</h1>
+      <p>
+        I&apos;m a {getAge()} year old student in Bangalore, India and I love making web apps and games. I recently started discovering my interest in hardware and decided to make a podcast and a blog revolved around it. I&apos;m currently working on a software to store your great ideas called <a href="https://sumbox.app">Sumbox</a>!
+
+      </p>
+      <br />
+      <p>
+        I&apos;m in 12th grade @ BGS National Public School, Expecting to graduate in 2023, and my hobbies include <b>Coding</b>, <b>Listening to music</b>.
+        I am interested in <b>Web Development</b>, <b>Game Development</b>, <b>UI/UX Design</b>, <b>Hardware</b>, <b>Podcasting</b> and <b>Writing</b>.
+      </p>
+      <br />
+      <h2 class="text-3xl pb-4">Where to find me?</h2>
+      <p>
+        If you find my work interesting, you can mail me, or send a message on discord @ rithulkamesh#2924. You&apos;ll also find me active in the <a href="https://slack.hackclub.com">Hack Club Slack</a>. I also have my own discord server which u can join <a href="https://rithul.dev/discord">here</a>!
+      </p>
+      <br />
+      <br />
+      <h2 class="text-3xl pb-4">Things I've Built</h2>
+
+      <section
+        class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
+      >
+        {
+          pinnedRepos.map((repo) => {
+            return (
+              <Project
+                name={repo.repo}
+                owner={repo.owner}
+                description={repo.description}
+                stars={repo.stars}
+                language={repo.language}
+              />
+            );
+          })
+        }
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

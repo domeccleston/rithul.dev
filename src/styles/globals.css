@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply font-inter m-auto p-5 max-w-[65ch] text-left break-words leading-6 text-neutral-300 antialiased;
+    background-color: #002b36;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+h1 {
+  @apply font-black text-4xl;
+  color: #fdf6e3;
+}
+
+h2 {
+  @apply font-extrabold text-2xl;
+  color: #fdf6e3;
+}
+
+h3 {
+  @apply font-bold text-xl;
+  color: #fdf6e3;
+}
+
+.faq h3 {
+  @apply pb-1;
+}
+
+p {
+  color: #eee8d5;
+}
+
+b {
+  color: #eee8d5;
+}
+
+a {
+  @apply text-t-green hover:underline underline-offset-2;
+}
+
+article a {
+  @apply font-medium underline underline-offset-2;
+  color: #eee8d5;
+}
+
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
+}
+
+content {
+  line-height: 1.6;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  @apply max-w-full h-auto my-8 rounded-xl border border-neutral-800;
+}
+
+code {
+  @apply font-hack text-sm bg-t-black p-[2.4px] rounded border border-neutral-800;
+  color: #eee8d5;
+}
+
+pre {
+  @apply font-hack rounded-xl border border-neutral-800 p-4 my-8 text-sm scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-600 scrollbar-thumb-rounded-xl scrollbar-track-rounded-xl overflow-y-scroll;
+}
+
+pre > code {
+  @apply font-hack;
+  all: unset;
+}
+
+blockquote {
+  @apply rounded-xl bg-t-black border border-neutral-700 p-4;
+}
+
+ul {
+  @apply ml-5;
+}
+
+ul > li {
+  @apply list-disc;
+}
+
+ul > li::marker {
+  @apply text-neutral-500;
+}

@@ -1,0 +1,43 @@
+[
+    {
+        "owner": "rithulkamesh",
+        "repo": "macro-board",
+        "link": "https://github.com/rithulkamesh/macro-board",
+        "description": "A Macro Keyboard made with Raspberry Pi Pico",
+        "image": "https://opengraph.githubassets.com/1/rithulkamesh/macro-board",
+        "language": "KiCAD",
+        "forks": 0
+    },
+    {
+        "owner": "iWaroz",
+        "repo": "Whisper",
+        "link": "https://github.com/iWaroz/whisper",
+        "description": "An anonymous chatting app made with socket.io",
+        "image": "https://opengraph.githubassets.com/1/iwaroz/whisper",
+        "language": "JavaScript",
+        "languageColor": "#f1e05a",
+        "forks": 0
+    },
+    {
+        "owner": "rithulkamesh",
+        "repo": "ideabank",
+        "link": "https://github.com/rithulkamesh/ideabank",
+        "description": "A simple idea bank made in rust",
+        "image": "https://opengraph.githubassets.com/1/rithulkamesh/ideabank",
+        "language": "Rust",
+        "languageColor": "#dea584",
+        "stars": "5",
+        "forks": 0
+    },
+    {
+        "owner": "rithulkamesh",
+        "repo": "current-task-widget",
+        "link": "https://github.com/rithulkamesh/current-task-widget",
+        "description": "A current task widget for Ubersicht",
+        "image": "https://opengraph.githubassets.com/1/rithulkamesh/current-task-widget",
+        "language": "JavaScript",
+        "languageColor": "#f1e05a",
+        "stars": "3",
+        "forks": 0
+    }
+]
