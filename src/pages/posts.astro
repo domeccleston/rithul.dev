@@ -10,7 +10,19 @@ import { atom } from "nanostores";
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-const getPosts = () => prisma.Post.findMany()
+const getPosts = () => prisma.post.findMany()
+const time_since = (timestamp :  Date) => {
+  const hours = Math.floor((new Date().getTime() - timestamp.getTime()) / 3600000);
+  if (hours < 1) {
+    // If it has been less than an a minute, return "Just now"
+    const minutes = Math.floor((new Date().getTime() - timestamp.getTime()) / 60000);
+    if (minutes < 1) {
+      return "Just now";
+    }
+    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+  }
+  return hours > 24 ? Math.floor(hours / 24) + " days ago" : hours + " hours ago";
+}
 ---
 
     <html lang="en">
@@ -28,7 +40,7 @@ const getPosts = () => prisma.Post.findMany()
               {
                 getPosts().then((posts) => {
                   return posts.map((post) => {
-                    return <Post timestamp={new Date(post.createdAt)}>{post.text}</Post>
+                    return <Post timestamp={time_since(post.createdAt)}>{post.text}</Post>
                   })
                 })
               }
