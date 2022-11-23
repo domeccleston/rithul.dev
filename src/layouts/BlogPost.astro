@@ -2,6 +2,7 @@
 import BaseHead from "../components/SEO.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Newsletter from "../components/Newsletter.astro";
 
 export interface Props {
   content: {
@@ -73,6 +74,9 @@ const {
         <hr class="border-t border-t-neutral-700 my-8" />
         <slot />
       </article>
+      <hr class="border-t border-t-neutral-700 my-8" />
+      This is the end of the blog post. If you like it, I write more frequent content in the newsletter.
+      <Newsletter />
     </main>
     <Footer />
   </body>
