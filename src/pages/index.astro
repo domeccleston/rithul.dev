@@ -7,29 +7,11 @@ import Project from "../components/Project.astro";
 import Newsletter from "../components/Newsletter.astro";
 import axios from "axios"
 
-type Repository = {
-  fork: boolean;
-  stargazers_count: number;
-};
-
-type PinnedRepo = {
-  owner: string;
-  repo: string;
-  description: string;
-  language: string;
-  languageColor: string;
-  stars: number;
-  forks: string;
-};
-
 const getAge = () => {
   const age = (Date.now() - new Date("2006-05-10").getTime()) / 1000 / 60 / 60 / 24 / 365;
   return Math.floor(age * 10) / 10;
 };
-const pinnedRepos = (await axios.get(
-  Astro.url + "/projects.json"
-))?.data;
-// console.log(pinnedRepos)
+import projects from "../projects.json";
 ---
 
 <!DOCTYPE html>
@@ -63,14 +45,13 @@ const pinnedRepos = (await axios.get(
         class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
       >
         {
-          pinnedRepos.map((repo) => {
+          projects.map((project) => {
             return (
               <Project
-                name={repo.repo}
-                owner={repo.owner}
-                description={repo.description}
-                stars={repo.stars}
-                language={repo.language}
+                name={project.repo}
+                owner={project.owner}
+                description={project.description}
+                language={project.language}
               />
             );
           })
