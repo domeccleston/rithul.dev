@@ -8,6 +8,7 @@ module.exports = {
 			colors: {
 				"t-green": "#2aa198",
 				"t-black": "#121212",
+				"n-red": "#cb4b16"
 			},
 			fontFamily: {
 				inter: ["Inter", ...defaultTheme.fontFamily.sans],
